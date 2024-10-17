@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+            function triParInsertion(cartes) {
+                // On parcourt toutes les cartes sauf la première
+                for (let i = 1; i < cartes.length; i++) {
+                    // On prend la carte actuelle
+                    let carteActuelle = cartes[i];
+                    // On commence par comparer avec la carte juste avant
+                    let j = i - 1;
+
+                    // Tant que la carte actuelle est plus petite que les autres cartes,
+                    // on les décale vers la droite
+                    while (j >= 0 && cartes[j] > carteActuelle) {
+                        cartes[j + 1] = cartes[j];
+                        j--;
+                    }
+
+                    // Placement de la carte a la bonne position(insertion)
+                    cartes[j + 1] = carteActuelle;
+                }
+                return cartes;
+            }
+
+            // Exemple de cartes avant tri
+            let cartes = [5, 3, 8, 4, 2, 11, 18];
+            console.log("Avant le tri :", cartes);
+
+            // cartes apres tri
+            let cartesTriees = triParInsertion(cartes);
+            console.log("Après le tri :", cartesTriees);
+
+    </script>
+
+</body>
+</html>
